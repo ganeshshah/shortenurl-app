@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { shortenUrl } from '../../../services/services';
 
 function SearchContainer() {
   const [longUrl, setLongUrl] = useState('');
@@ -8,13 +9,22 @@ function SearchContainer() {
     setLongUrl(event.target.value);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     // Add your URL processing logic here
     // For example, you might shorten the URL using a third-party API
-    const processedUrl = 'https://example.com/shortened-url'; // Replace with actual processing
-    setOutputUrl(processedUrl);
+
+    const urlToBeShortened = {
+      url: longUrl
+    }
+
+    const processedUrl = await shortenUrl(urlToBeShortened); // Replace with actual processing
+    console.log(processedUrl);
+
+    setOutputUrl(processedUrl.data.shortUrl);
   };
+
+
 
   return (
     <div className="container mx-auto p-24">

@@ -1,5 +1,6 @@
 package com.shortenurl.microservices.shortenurlservice.controller;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,6 +13,7 @@ public class ShortenUrlRestController {
     private Map<String, String> urlMap = new HashMap<>();
 
     @PostMapping("/shortenurl")
+    @CrossOrigin(origins = "http://localhost:3000")
     public Map<String, String> shortenUrl(@RequestBody Map<String, String> request) {
         String originalUrl = request.get("url");
         String shortUrl = generateShortUrl(originalUrl);
