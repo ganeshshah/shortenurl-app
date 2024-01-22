@@ -1,16 +1,23 @@
 package com.shortenurl.microservices.shortenurlservice.controller;
 
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.core.env.Environment;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.Map;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 public class ShortenUrlRestController {
+
+//    @Autowired
+//    ShortenUrlRestControllerProxy proxy;
     private Map<String, String> urlMap = new HashMap<>();
+    @Autowired
+    Environment env;
+
 
     @PostMapping("/shortenurl")
     @CrossOrigin(origins = "http://localhost:3000")
@@ -23,8 +30,21 @@ public class ShortenUrlRestController {
         Map<String, String> response = new HashMap<>();
         response.put("originalUrl", originalUrl);
         response.put("shortUrl", shortUrl);
+        response.put("port", env.getProperty("local.server.port"));
 
         return response;
+    }
+
+//    @PostMapping("/shortenurl-feign")
+//    @CrossOrigin(origins = "http://localhost:3000")
+//    public Map<String, String> shortenUrl_feign(@RequestBody Map<String, String> request) {
+//        return proxy.shortenUrl(request);
+//    }
+
+    @GetMapping("/get")
+    @CrossOrigin(origins = "http://localhost:3000")
+    public String shortenUrl_get_dummy() {
+        return "hello world";
     }
 
     private String generateShortUrl(String originalUrl) {
