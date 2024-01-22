@@ -10,6 +10,7 @@ import java.util.Map;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
+@RequestMapping("/shortenurl-svc-api")
 public class ShortenUrlRestController {
 
 //    @Autowired
