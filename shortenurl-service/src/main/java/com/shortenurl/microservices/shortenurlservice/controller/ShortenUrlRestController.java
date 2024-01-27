@@ -1,5 +1,7 @@
 package com.shortenurl.microservices.shortenurlservice.controller;
 
+import com.shortenurl.microservices.shortenurlservice.models.User;
+import com.shortenurl.microservices.shortenurlservice.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.core.env.Environment;
@@ -19,6 +21,9 @@ public class ShortenUrlRestController {
     @Autowired
     Environment env;
 
+    @Autowired
+    UserRepo userDatabase;
+
 
     @PostMapping("/shortenurl")
     @CrossOrigin(origins = "http://localhost:3000")
@@ -32,6 +37,9 @@ public class ShortenUrlRestController {
         response.put("originalUrl", originalUrl);
         response.put("shortUrl", shortUrl);
         response.put("port", env.getProperty("local.server.port"));
+
+        User user = new User("1","ganesh","shah","lostinthoughts","password",5000);
+        userDatabase.insert(user);
 
         return response;
     }
