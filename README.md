@@ -11,7 +11,7 @@ MongoDB
 ### Ports Used by each service
 | Microservices            | Ports used  |
 |--------------------------|-------------|
-| `authentication-service` | 8000 - 8050 |
+| `authentication-service (Keycloak)` | 8050 |
 | `eureka-server`          | 8100        |
 | `shortenurl-api-gateway` | 8200        |
 | `shortenurl-service`     | 8300-8350   |
