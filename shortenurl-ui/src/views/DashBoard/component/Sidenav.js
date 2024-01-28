@@ -5,8 +5,8 @@ import SearchContainer from "./SearchContainer";
 
 export default function Sidenav() {
   return (
-    <div class="flex flex-cols-2 bg-cyan-100">
-      <div class="w-1/6 h-screen">
+    <div className="flex flex-cols-2 bg-cyan-100">
+      <div className="w-1/6 h-screen">
       <nav className="bg-cyan-800 w-64 h-screen fixed top-0 left-0 text-white font-semibold shadow-lg">
           <div className="flex justify-center pt-4 pb-16">
             <img
@@ -16,7 +16,7 @@ export default function Sidenav() {
             <span className="">Shrink Url</span>
           </div>
           <ul className="flex flex-col text-white">
-            <li class="pb-4">
+            <li className="pb-4">
               <a
                 href="#"
                 className="block px-4 py-2 text-sm hover:bg-cyan-500"
@@ -24,7 +24,7 @@ export default function Sidenav() {
                 Home
               </a>
             </li>
-            <li class="pb-4">
+            <li className="pb-4">
               <a
                 href="#"
                 className="block px-4 py-2 text-sm hover:bg-cyan-500"
@@ -32,7 +32,7 @@ export default function Sidenav() {
                 All urls
               </a>
             </li>
-            <li class="pb-4">
+            <li className="pb-4">
               <a href="#" className="block px-4 py-2 text-sm hover:bg-cyan-500">
                 Analytics
               </a>
@@ -40,9 +40,9 @@ export default function Sidenav() {
           </ul>
         </nav>
       </div>
-      <div class="w-5/6  h-full">
+      <div className="w-5/6  h-full">
         <div>
-          <div class="bg-cyan-100 h-15 shadow-xl">
+          <div className="bg-cyan-100 h-15 shadow-xl">
             <Header/>
           </div>
           <div>

@@ -4,14 +4,14 @@ import logout from "../../Images/logout.png";
 
 export default function Header() {
   return (
-    <div class="flex justify-between px-4">
-      <div class="flex p-2">
-        <img src={user} class="h-10"></img>
-        <span class="pl-4 pt-2 font-semibold">Ganesh Shah</span>
+    <div className="flex justify-between px-4">
+      <div className="flex p-2">
+        <img src={user} className="h-10"></img>
+        <span className="pl-4 pt-2 font-semibold">Ganesh Shah</span>
       </div>
-      <div class="flex p-2">
-        <img src={logout} class="h-10"></img>
-        <span class="pl-4 pt-2 font-semibold">Logout</span>
+      <div className="flex p-2">
+        <img src={logout} className="h-10"></img>
+        <span className="pl-4 pt-2 font-semibold">Logout</span>
       </div>
     </div>
   );

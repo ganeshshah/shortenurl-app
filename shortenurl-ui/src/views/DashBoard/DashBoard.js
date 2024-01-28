@@ -1,9 +1,12 @@
-import React from "react"
 import Sidenav from "./component/Sidenav"
+import useAuth from "../../hooks/useAuth";
+import React, { useState, useEffect, useRef } from "react";
+
+
 
 
 export default function DashBoard(){
-    return(
-        <Sidenav/>
-    )
+    const [isLogin, token] = useAuth();
+    
+    return isLogin ? <Sidenav/> : console.log("logged-out");
 }
